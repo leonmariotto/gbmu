@@ -39,4 +39,3 @@ roms/*
 gmon.out
 imgui.ini
 *.a
-*.AppImage
