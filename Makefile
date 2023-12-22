@@ -50,7 +50,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C $(IMGUI_PATH)
-	$(CXX) $^ -o $@ -I ${SDLINCPATH} ${SDLPATH} $(LIBS)
+	$(CXX) ${LDFLAGS} $^ -o $@ -I ${SDLINCPATH} ${SDLPATH} $(LIBS)
 
 app: $(APPIMAGE)
 
