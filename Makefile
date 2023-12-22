@@ -36,6 +36,10 @@ FILES = main.cpp \
 APPIMAGE = gbmu-x86_64.AppImage
 
 IMGUI_PATH = src/imgui/
+
+SDLPATH ?= /usr/local/lib/libSDL2.a
+SDLINCPATH ?= /usr/local/include/SDL2
+
 LIBS = libimgui.a
 OBJ = $(addprefix obj/,$(FILES:.cpp=.o))
 
@@ -46,7 +50,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C $(IMGUI_PATH)
-	$(CXX) $^ -o $@ `sdl2-config --cflags --static-libs` $(LIBS)
+	$(CXX) $^ -o $@ -I ${SDLINCPATH} ${SDLPATH} $(LIBS)
 
 app: $(APPIMAGE)
 
@@ -57,7 +61,7 @@ $(APPIMAGE): $(NAME)
 
 obj/%.o:src/%.cpp src/*.hpp src/define.hpp src/*.tpp
 	@mkdir -p obj
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -I ${SDLINCPATH}
 
 clean :
 	@#make -C $(IMGUI_PATH) clean
