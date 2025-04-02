@@ -20,3 +20,26 @@ jobs:
         sudo apt install -y build-essential make g++ libsdl2-dev libfuse-dev
     - name: Compile project
       run: make app
+      
+    - name: Upload release artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-binaries
+        path: gbmu-x86_64.AppImage
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download release artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-binaries
+          path: .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: gbmu-x86_64.AppImage
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
