@@ -39,3 +39,6 @@ roms/*
 gmon.out
 imgui.ini
 *.a
+
+gbmu
+gbmu-x86_64.AppImage
