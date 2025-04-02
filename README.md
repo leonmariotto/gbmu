@@ -1,6 +1,8 @@
-
-
 # GBMU : GameBoy and GameBoy Color emulator in C++
+
+![image](https://github.com/user-attachments/assets/6d9975f8-ddc3-4d95-886c-c28c69010d07)
+
+
 
 42Paris school project. <br>
 The emulator can run all GameBoy MBC. <br>
