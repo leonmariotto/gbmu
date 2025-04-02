@@ -37,20 +37,23 @@ APPIMAGE = gbmu-x86_64.AppImage
 
 IMGUI_PATH = src/imgui/
 
-SDLPATH ?= /usr/local/lib/libSDL2.a
 SDLINCPATH ?= /usr/local/include/SDL2
+
+SDLFLAGS = $(shell pkg-config sdl2 --libs --static)
 
 LIBS = libimgui.a
 OBJ = $(addprefix obj/,$(FILES:.cpp=.o))
+CXX = g++
 
-CXXFLAGS = -std=gnu++14 -Wall -Wextra -O3 -g
+LDFLAGS = -Wl,--gc-sections
+CXXFLAGS = -std=gnu++14 -Wall -Wextra -O3 -g -ffunction-sections -fdata-sections
 #-g3 -Og
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C $(IMGUI_PATH)
-	$(CXX) ${LDFLAGS} $^ -o $@ -I ${SDLINCPATH} ${SDLPATH} $(LIBS)
+	${CXX} ${LDFLAGS} -o $@ -I ${SDLINCPATH} ${OBJ} ${SDLFLAGS} $(LIBS)
 
 app: $(APPIMAGE)
 

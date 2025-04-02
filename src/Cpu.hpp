@@ -25,6 +25,7 @@
 ** it's called by Gameboy
 */
 
+#include <stdint.h>
 #include "CpuStackTrace.hpp"
 #include <string>
 
