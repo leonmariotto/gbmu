@@ -34,8 +34,6 @@ obj
 obj/*.o
 gbmu
 *.o
-roms
-roms/*
 gmon.out
 imgui.ini
 *.a
