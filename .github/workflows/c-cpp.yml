@@ -2,9 +2,8 @@ name: C/C++ CI
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    tags:
+      - "v*"  # Runs when you push a tag like "v1.0", "v2.0.1", etc.
 
 jobs:
   build:
