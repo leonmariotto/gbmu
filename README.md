@@ -3,11 +3,10 @@
 ![image](https://github.com/user-attachments/assets/6d9975f8-ddc3-4d95-886c-c28c69010d07)
 
 42Paris school project. <br>
-The emulator can run all GameBoy MBC. <br>
-Sound is WIP. <br>
-Run make to compile. <br>
+A release AppImage is downloadable. Few roms are available under roms/ to easily test. <br>
+The Appimage is expected to work under ubuntu >= 22.04 <br>
 
-## Requirements
+## Compile requirements
 libsdl2 <br>
 g++ <br>
 
