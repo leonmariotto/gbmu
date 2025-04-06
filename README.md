@@ -4,7 +4,7 @@
 
 42Paris school project. <br>
 A release AppImage is downloadable. Few roms are available under roms/ to easily test. <br>
-The Appimage is expected to work under ubuntu >= 22.04 <br>
+The Appimage is expected to work on ubuntu >= 22.04 <br>
 
 ## Compile requirements
 libsdl2 <br>
